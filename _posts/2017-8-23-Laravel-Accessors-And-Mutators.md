@@ -32,8 +32,7 @@ class Inventory extends Model
 
     public function getReportingDateAttribute($value)
     {
-        $createDate = new \DateTime($value); //2017-08-14 20:58:37
-        return $createDate->format('Y-m-d');
+        return new \DateTime($value)->format('Y-m-d'); //2017-08-14
     }
 }
 
@@ -73,8 +72,7 @@ class Order extends Model
 
     public function setTaxAttribute($value)
     {
-        $tax = ($tax * 20)/100;
-        $this->attributes['tax'] = tax;
+        $this->attributes['tax'] = ($value * 20)/100;;
     }
 }
 ```
